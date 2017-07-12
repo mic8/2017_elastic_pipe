@@ -31,9 +31,9 @@ class LineFactory {
 
             lines.push({
                 v: v,
-                points: [startIndex, endIndex],
                 state: LineState.NORMAL,
                 lineDash: 0,
+                points: [startIndex, endIndex],
                 curveLength: LineFactory.calcBezierCurveLength(v[0], v[1], v[2], v[3])
             });
         }

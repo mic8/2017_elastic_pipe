@@ -24,11 +24,11 @@ class Line {
 
     draw(ctx) {
         this.lines.forEach((line) => {
-            if(LineState.HIDDEN === line.state) return;
+            if (LineState.HIDDEN === line.state) return;
             Line._draw(ctx, line.v, 'black', 8);
-            if(LineState.NORMAL === line.state)
+            if (LineState.NORMAL === line.state)
                 Line._draw(ctx, line.v, '#333', 4);
-            else if(LineState.SELECTED === line.state)
+            else if (LineState.SELECTED === line.state)
                 Line._draw(ctx, line.v, '#379fd9', 4, line.lineDash);
         });
     }

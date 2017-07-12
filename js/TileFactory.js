@@ -1,34 +1,6 @@
 class TileFactory {
     get distance() {
         return [
-            new Vector({ x: 0, y: 100 }), new Vector({ x: 87, y: 50 }), new Vector({ x: 87, y: -50 }),
-            new Vector({ x: 0, y: -100 }), new Vector({ x: -87, y: -50 }), new Vector({ x: -87, y: 50 })
-        ]
-    }
-
-    get tileSize() {
-        return new Vector({ x: 115, y: 100 });
-    }
-
-    newPlayableTile(image, pos, line, entryIndex) {
-        return new PlayTile({
-            image: image,
-            pos: pos,
-            line: line,
-            entryIndex: entryIndex,
-            sourcePos: new Vector({ x: 345 })
-        });
-    }
-
-    generate(image, radius, boundaryMap, tiles) {
-    }
-}
-
-
-
-class TileFactory {
-    get distance() {
-        return [
             new Vector({x: 0, y: 100}), new Vector({x: 87, y: 50}), new Vector({x: 87, y: -50}),
             new Vector({x: 0, y: -100}), new Vector({x: -87, y: -50}), new Vector({x: -87, y: 50})
         ];

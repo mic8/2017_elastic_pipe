@@ -103,8 +103,7 @@ class Game {
     }
 
     move() {
-        if(this.lost) return;
-
+        if (this.lost) return;
         let acc = 1,
             nextEntryIndex = [7, 6, 9, 8, 11, 10, 1, 0, 3, 2, 5, 4],
             counter = 0;
@@ -112,7 +111,7 @@ class Game {
         while(counter++ < 100000) {
             let entryIndex = this.selectedPlayTile.entryIndex;
             entryIndex = (entryIndex + this.selectedPlayTile.targetRot / 30) % 12;
-            if(entryIndex < 0) entryIndex += 12;
+            if (entryIndex < 0) entryIndex += 12;
 
             let line = this.selectedPlayTile.line.lines.find((l) => {
                 return l.points.indexOf(entryIndex) !== -1;
@@ -121,7 +120,7 @@ class Game {
             line.state = LineState.SELECTED;
 
             let stopIndex = line.points[1];
-            if(entryIndex !== line.points[0]) {
+            if (entryIndex !== line.points[0]) {
                 stopIndex = line.points[0];
                 line.v.reverse();
             }
@@ -132,14 +131,14 @@ class Game {
             });
 
             stopIndex = (stopIndex - this.selectedPlayTile.targetRot / 30) % 12;
-            if(stopIndex < 0) stopIndex += 12;
+            if (stopIndex < 0) stopIndex += 12;
 
             let newPos = Vector.add(this.selectedPlayTile.targetPos, this.tileFactory.distance[Math.floor(stopIndex / 2)]);
 
-            if(this.boundaryMap[newPos.key]) {
+            if (this.boundaryMap[newPos.key]) {
                 this.lost = true;
                 break;
-            } else if(this.playableMap[newPos.key]) {
+            } else if (this.playableMap[newPos.key]) {
                 this.selectedPlayTile = this.playableMap[newPos.key];
                 this.selectedPlayTile.entryIndex = nextEntryIndex[stopIndex];
             } else {
